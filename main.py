@@ -26,14 +26,9 @@ def process():
             data = request.get_json()
             response = getOpenAiResponse(data['prompt'])
 
-            status = response.get("statusCode")
+            return response
 
-            if status:
-                status = int(status)
-            else:
-                status = 200
-
-            return _corsify_actual_response(jsonify(response)), status
+        return _corsify_actual_response(jsonify(response)), status
     except Exception as e:
         print(e)
         final_json = {"error": "Something Went Wrong", "status": 500}

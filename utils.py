@@ -4,7 +4,7 @@ from openai import AzureOpenAI
 
 def getOpenAiResponse(prompt):
 
-    response=""
+    response={}
     
     try:
         client = AzureOpenAI(
@@ -24,7 +24,7 @@ def getOpenAiResponse(prompt):
         finalResponse=airesponse.choices[0].message.content
 
 
-        response=finalResponse
+        response['response']=finalResponse
                     
         
     except Exception as e:

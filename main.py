@@ -15,7 +15,7 @@ def remove_server_header(response):
 
 
 @app2.route("/", methods=['POST', "OPTIONS"])
-def process(request):
+def process():
 
     try:
         if request.method == "OPTIONS":

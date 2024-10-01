@@ -4,6 +4,17 @@ from functions_framework import http
 from utils import getOpenAiResponse
 app2 = Flask(__name__)
 
+def _build_cors_preflight_response():
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "*")
+    response.headers.add("Access-Control-Allow-Methods", "*")
+    return response
+
+
+def _corsify_actual_response(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 @app2.after_request
 def remove_server_header(response):
@@ -37,16 +48,3 @@ def process():
 
 if __name__ == "__main__":
     app2.run(host="0.0.0.0", port=8080)
-
-
-def _build_cors_preflight_response():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
-
-
-def _corsify_actual_response(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response

@@ -4,7 +4,8 @@ from utils import getOpenAiResponse
 app2 = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app2)
+CORS(app2, resources={r"/*": {"origins": "*"}})
+
 
 @app2.after_request
 def remove_server_header(response):

@@ -14,7 +14,12 @@ body {
 }
 
 .chat-container {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
     width: 100%;
+    /* min-height: 100vh; */
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -29,7 +34,10 @@ body {
 }
 
 .chat-box {
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    
+    height: auto;
     padding: 10px;
     overflow-y: auto;
     background-color: #e9ecef;
@@ -41,17 +49,19 @@ body {
 }
 
 .user-message {
+    align-self: flex-end;
     text-align: right;
     color: white;
     background-color: #858586;
     padding: 8px;
+    width: fit-content;
     border-radius: 10px;
-    display: inline-block;
 }
 
 .bot-message {
+    width: fit-content;
     text-align: left;
-    background-color: #f1f1f1;
+    background-color: #dddddd;
     color: black;
     padding: 8px;
     border-radius: 10px;
@@ -59,8 +69,11 @@ body {
 }
 
 .chat-input-box {
+    width: 100%;
     padding: 10px;
+    /* position: fixed; */
     display: flex;
+    bottom: 0;
     border-top: 1px solid #ccc;
     background-color: #fff;
 }
@@ -84,4 +97,17 @@ body {
 
 .chat-input-box button:hover {
     background-color: #0056b3;
+}
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

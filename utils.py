@@ -7,7 +7,7 @@ def getOpenAiResponse(prompt):
     response={}
     
     try:
-        apiKey = os.getenv("API_KEY")
+        apiKey = os.getenv("OPENAI_API_KEY")
         client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
   api_key=apiKey,

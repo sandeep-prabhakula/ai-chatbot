@@ -1,5 +1,5 @@
 from openai import OpenAI
-
+import os
 
 
 def getOpenAiResponse(prompt):
@@ -7,9 +7,10 @@ def getOpenAiResponse(prompt):
     response={}
     
     try:
+        apiKey = os.getenv("API_KEY")
         client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key="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",
+  api_key=apiKey,
 )
 
         completion = client.chat.completions.create(

@@ -10,7 +10,7 @@ def getOpenAiResponse(prompt):
         apiKey = os.getenv("OPENAI_API_KEY")
         client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key="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",
+  api_key="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",
 )
 
         completion = client.chat.completions.create(
@@ -20,7 +20,7 @@ def getOpenAiResponse(prompt):
   messages=[
     {
       "role": "user",
-      "content":"what is chain of thought prompting"
+      "content":prompt
     }
   ]
 )
